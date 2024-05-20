@@ -2,7 +2,7 @@
 
 ## QueryClient
 
-- react-query에서 QueryClient의 인스턴스를 사용하여 캐시와 상호작용 할 수 있으며, 기본적인 사용법은 다음과 같다.
+- react-query에서 QueryClient의 인스턴스를 사용하여 캐시와 상호작용 할 수 있으며, 기본적인 사용법은 다음과 같습니다.
 
 ```js
 // v4
@@ -53,17 +53,23 @@ const queryClient = new QueryClient({
 
 ### 📃 목차
 
-1. [queryClient.useQueryClient](#useQueryClient)
-2. [queryClient.getQueryData](#getQueryData)
-3. [queryClient.getQueriesData](#getQueriesData)
-4. [queryClient.setQueryData](#setQueryData)
-5. [queryClient.setQueriesData](#setQueriesData)
-6. [queryClient.invalidateQueries](#invalidateQueries)
-7. [queryClient.refetchQueries](#refetchQueries)
-8. [queryClient.cancelQueries](#cancelQueries)
-9. [queryClient.removeQueries](#removeQueries)
-10. [queryClient.resetQueries](#resetQueries)
-11. [queryClient.clear](#clear)
+- [💻 QueryClient 주요 내용](#-queryclient-주요-내용)
+  - [QueryClient](#queryclient)
+    - [Option](#option)
+  - [자주 쓰이는 QueryClient 옵션](#자주-쓰이는-queryclient-옵션)
+    - [📃 목차](#-목차)
+  - [🙏 참고로 v3 형태를 v4에서 대부분 지원합니다 🙏](#-참고로-v3-형태를-v4에서-대부분-지원합니다-)
+    - [useQueryClient](#usequeryclient)
+    - [getQueryData](#getquerydata)
+    - [getQueriesData](#getqueriesdata)
+    - [setQueryData](#setquerydata)
+    - [setQueriesData](#setqueriesdata)
+    - [invalidateQueries](#invalidatequeries)
+    - [refetchQueries](#refetchqueries)
+    - [cancelQueries](#cancelqueries)
+    - [removeQueries](#removequeries)
+    - [resetQueries](#resetqueries)
+    - [clear](#clear)
 
 <br />
 
@@ -138,7 +144,7 @@ getQueriesData<TQueryFnData = unknown>(filters: QueryFilters): [QueryKey, TQuery
 ### setQueryData
 
 - queryClient.setQueryData는 `캐싱된 쿼리 데이터를 즉시 업데이트하는데 사용할 수 있는 동기 함수`입니다.
-- invalidateQueries와 더불어 캐시 데이터를 최신화할 때 많이 사용한다.
+- invalidateQueries와 더불어 캐시 데이터를 최신화할 때 많이 사용합니다.
 
 ```js
 // v3/v4
@@ -161,8 +167,8 @@ setQueryData<TQueryFnData>(queryKey: QueryKey, updater: Updater<TQueryFnData | u
 
 ### setQueriesData
 
-- queryClient.setQueriesData는 `필터 기능을 사용하거나 쿼리 키를 부분적으로 일치시켜 여러 쿼리의 캐시된 데이터를 즉시 업데이트하는데 사용할 수 있는 동기 함수`이다.
-- 전달된 queryKey 또는 filters와 일치하는 쿼리만 업데이트되며, 새 캐시 항목이 생성되지 않는다.
+- queryClient.setQueriesData는 `필터 기능을 사용하거나 쿼리 키를 부분적으로 일치시켜 여러 쿼리의 캐시된 데이터를 즉시 업데이트하는데 사용할 수 있는 동기 함수`입니다.
+- 전달된 queryKey 또는 filters와 일치하는 쿼리만 업데이트되며, 새 캐시 항목이 생성되지 않습니다.
 
 ```js
 // v3/v4
@@ -185,11 +191,11 @@ setQueriesData<TQueryFnData>(filters: QueryFilters, updater: Updater<TQueryFnDat
 
 ### invalidateQueries
 
-- queryClient.invalidateQueries는 setQueryData와 더불어 `캐시 데이터를 최신화`할 때 많이 사용하는 함수이다. ([쿼리 무효화 예제](https://github.com/ssi02014/react-query-tutorial#%EC%BF%BC%EB%A6%AC-%EB%AC%B4%ED%9A%A8%ED%99%94)) 단일 또는 여러 쿼리를 무효화하고, 다시 가져오는데 많이 사용한다.
-- 기본적으로 일치하는 모든 쿼리는 즉시 유효하지 않은 것으로 표시되고, 활성 쿼리는 백드라운드에서 다시 가져온다.
-- 만약, 활성 쿼리를 다시 가져오는 것을 원하지 않으면 v3에서는 `refetchActive: false`, v4에서는 `refetchType: 'none'`를 사용할 수 있다.
-- 반대로 비 활성화 쿼리를 다시 가져오기를 원한다면 v3에서는 `refetchInactive: true`, v4에서는 `refetchType: 'all'`을 사용할 수 있다.
-- 참고로 query 옵션으로 `enabled: false` 옵션을 주면 queryClient가 쿼리를 다시 가져오는 방법들 중 `invalidateQueries`와 `refetchQueries`를 무시한다.
+- queryClient.invalidateQueries는 setQueryData와 더불어 `캐시 데이터를 최신화`할 때 많이 사용하는 함수입니다. ([쿼리 무효화 예제](https://github.com/ssi02014/react-query-tutorial#%EC%BF%BC%EB%A6%AC-%EB%AC%B4%ED%9A%A8%ED%99%94)) 단일 또는 여러 쿼리를 무효화하고, 다시 가져오는데 많이 사용합니다.
+- 기본적으로 일치하는 모든 쿼리는 즉시 유효하지 않은 것으로 표시되고, 활성 쿼리는 백드라운드에서 다시 가져옵니다.
+- 만약, 활성 쿼리를 다시 가져오는 것을 원하지 않으면 v3에서는 `refetchActive: false`, v4에서는 `refetchType: 'none'`를 사용할 수 있습니다.
+- 반대로 비 활성화 쿼리를 다시 가져오기를 원한다면 v3에서는 `refetchInactive: true`, v4에서는 `refetchType: 'all'`을 사용할 수 있습니다.
+- 참고로 query 옵션으로 `enabled: false` 옵션을 주면 queryClient가 쿼리를 다시 가져오는 방법들 중 `invalidateQueries`와 `refetchQueries`를 무시합니다.
 
 ```js
 // v3
@@ -213,10 +219,10 @@ await queryClient.invalidateQueries(
   { throwOnError, cancelRefetch }
 );
 
-// exact옵션을 줬기 때문에 쿼리 키와 정확히 일치하는 쿼리만을 무효화하고 다시 가져온다.
+// exact옵션을 줬기 때문에 쿼리 키와 정확히 일치하는 쿼리만을 무효화하고 다시 가져옵니다.
 ```
 
-- 추가적으로 invalidateQueries가 무효화하는 `쿼리 범위`는 기본적으로`상위 -> 하위`로 전파된다. 이게 무슨 말이냐면 아래와 같이 `['super-heros']` 쿼리를 무효화 하게 되면 아래 하위 쿼리들도 모두 초기화된다.
+- 추가적으로 invalidateQueries가 무효화하는 `쿼리 범위`는 기본적으로`상위 -> 하위`로 전파됩니다. 예를 들어, 아래와 같이 `['super-heros']` 쿼리를 무효화 하게 되면 아래 하위 쿼리들도 모두 초기화됩니다.
 
 ```js
 queryClient.invalidateQueries({
@@ -228,8 +234,8 @@ queryClient.invalidateQueries({
 ["super-heros", { id: 1} ],
 ```
 
-- 위와 같이 `['super-heros']` 쿼리를 무효화 하게 되면 아래 하위 쿼리들도 모두 초기화된다.
-- 하지만 `해당 key만` 무효화 시키려면 첫 번째 예제 코드에서도 언급했듯이 `exact` 옵션을 주면 된다.
+- 위와 같이 `['super-heros']` 쿼리를 무효화 하게 되면 아래 하위 쿼리들도 모두 초기화됩니다.
+- 하지만 `해당 key만` 무효화 시키려면 첫 번째 예제 코드에서도 언급했듯이 `exact` 옵션을 주면 됩니다.
 
 <br />
 
@@ -245,21 +251,21 @@ invalidateQueries<TPageData = unknown>(queryKey?: QueryKey, filters?: Invalidate
 
 ### refetchQueries
 
-- queryClient.refetchQueries는 `특정 조건에 따라 쿼리를 다시 가져오는 데 사용하는 함수`이다.
-- 참고로 query 옵션으로 `enabled: false` 옵션을 주면 queryClient가 쿼리를 다시 가져오는 방법들 중 `invalidateQueries`와 `refetchQueries`를 무시한다.
+- queryClient.refetchQueries는 `특정 조건에 따라 쿼리를 다시 가져오는 데 사용하는 함수`입니다.
+- 참고로 query 옵션으로 `enabled: false` 옵션을 주면 queryClient가 쿼리를 다시 가져오는 방법들 중 `invalidateQueries`와 `refetchQueries`를 무시합니다.
 
 ```js
 // v3
-// 모든 쿼리를 다시 가져온다
+// 모든 쿼리를 다시 가져옵니다.
 await queryClient.refetchQueries();
 
-// 모든 stale 상태의 쿼리를 다시 가져온다.
+// 모든 stale 상태의 쿼리를 다시 가져옵니다.
 await queryClient.refetchQueries({ stale: true });
 
-// 쿼리 키와 부분적으로 일치하는 모든 활성 쿼리를 다시 가져온다.
+// 쿼리 키와 부분적으로 일치하는 모든 활성 쿼리를 다시 가져옵니다.
 await queryClient.refetchQueries(["super-heroes"], { active: true });
 
-// exact 옵션을 줬기 때문에 쿼리 키와 정확히 일치하는 모든 활성 쿼리를 다시 가져온다.
+// exact 옵션을 줬기 때문에 쿼리 키와 정확히 일치하는 모든 활성 쿼리를 다시 가져옵니다.
 await queryClient.refetchQueries(["super-heroes", 1], {
   active: true,
   exact: true,
@@ -268,19 +274,19 @@ await queryClient.refetchQueries(["super-heroes", 1], {
 
 ```js
 // v4
-// 모든 쿼리를 다시 가져온다
+// 모든 쿼리를 다시 가져옵니다.
 await queryClient.refetchQueries();
 
-// 모든 stale 상태의 쿼리를 다시 가져온다.
+// 모든 stale 상태의 쿼리를 다시 가져옵니다.
 await queryClient.refetchQueries({ stale: true });
 
-// 쿼리 키와 부분적으로 일치하는 모든 활성 쿼리를 다시 가져온다.
+// 쿼리 키와 부분적으로 일치하는 모든 활성 쿼리를 다시 가져옵니다.
 await queryClient.refetchQueries({
   queryKey: ["super-heroes"],
   type: "active",
 });
 
-// exact 옵션을 줬기 때문에 쿼리 키와 정확히 일치하는 모든 활성 쿼리를 다시 가져온다.
+// exact 옵션을 줬기 때문에 쿼리 키와 정확히 일치하는 모든 활성 쿼리를 다시 가져옵니다.
 await queryClient.refetchQueries({
   queryKey: ["super-heroes", 1],
   type: "active",
@@ -309,8 +315,8 @@ refetchQueries<TPageData = unknown>(queryKey?: QueryKey, filters?: RefetchQueryF
 
 ### cancelQueries
 
-- queryClient.cancelQueries는 `나가고 있는 액세스 가능한 쿼리를 수동적으로 취소시킬 수 있는 함수`이다.
-- 해당 함수는 나가고 있는 쿼리를 수동으로 삭제할 수 있기 때문에 `낙관적 업데이트`를 할 때 수행할 때 많이 사용된다. ([낙관적 업데이트 참고](https://github.com/ssi02014/react-query-tutorial#optimistic-update))
+- queryClient.cancelQueries는 `나가고 있는 액세스 가능한 쿼리를 수동적으로 취소시킬 수 있는 함수`입니다.
+- 해당 함수는 나가고 있는 쿼리를 수동으로 삭제할 수 있기 때문에 `낙관적 업데이트`를 할 때 수행할 때 많이 사용됩니다. ([낙관적 업데이트 참고](https://github.com/ssi02014/react-query-tutorial#optimistic-update))
 
 ```js
 // v3
@@ -332,7 +338,7 @@ cancelQueries(queryKey?: QueryKey, filters?: QueryFilters, options?: CancelOptio
 
 ### removeQueries
 
-- queryClient.removeQueries는 액세스 가능한 캐시 쿼리를 제거할 때 사용하는 함수이다.
+- queryClient.removeQueries는 액세스 가능한 캐시 쿼리를 제거할 때 사용하는 함수입니다.
 
 ```js
 // v3
@@ -353,9 +359,9 @@ removeQueries(queryKey?: QueryKey, filters?: QueryFilters): void;
 
 ### resetQueries
 
-- queryClient.resetQueries는 `액세스 가능한 캐시 쿼리를 초기 상태로 재설정하는데 사용하는 함수`이다.
-- 해당 함수는 clear와는 달리 모든 구독자를 제거하지 않고 구독자들에게 알린다. 또한 invalidateQueries와는 달리 쿼리를 미리 로드된 상태로 재설정한다.
-- 만약, 쿼리 옵션으로 `initialData`가 있는 경우 쿼리의 데이터가 해당 데이터로 재설정된다.
+- queryClient.resetQueries는 `액세스 가능한 캐시 쿼리를 초기 상태로 재설정하는데 사용하는 함수`입니다.
+- 해당 함수는 clear와는 달리 모든 구독자를 제거하지 않고 구독자들에게 알립니다. 또한 invalidateQueries와는 달리 쿼리를 미리 로드된 상태로 재설정합니다.
+- 만약, 쿼리 옵션으로 `initialData`가 있는 경우 쿼리의 데이터가 해당 데이터로 재설정됩니다.
 
 ```js
 // v3
@@ -377,7 +383,7 @@ resetQueries<TPageData = unknown>(queryKey?: QueryKey, filters?: ResetQueryFilte
 
 ### clear
 
-- queryClient.clear는 연결된 모든 캐시를 제거한다.
+- queryClient.clear는 연결된 모든 캐시를 제거합니다.
 
 ```js
 queryClient.clear();
